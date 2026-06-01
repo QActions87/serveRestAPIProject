@@ -65,7 +65,7 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
       newman run ServeRest_collection.json -r cli,htmlextra
   ```
     - III - Verificar novo relatório no diretório 'serveRestAPIProject/ServeRest
-/newman/' e dar dois cliques no arquivo '**.html**'com a data do dia.
+/newman/' e dar dois cliques no arquivo '**.html**'com a data do dia em que executou.
 
 
 
