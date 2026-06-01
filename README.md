@@ -1,5 +1,5 @@
 # serveRest API Project
-![JavaScript00101](https://api.devicons.dev.br/icon?icons=Linux%2CPostman%2CJavaScript&size=48&theme=light&perline=30)
+![JavaScript010101](https://api.devicons.dev.br/icon?icons=Linux%2CPostman%2CJavaScript&size=48&theme=light&perline=30)
 
 Criação de testes de API do manual ao CI/CD utilizando Postman, newman e newman-htmlextra
 
@@ -29,10 +29,20 @@ npm install -g newman
 ```
 npm install -g newman-reporter-htmlextra
 ```
-   - 
+
+ - 3º Fork do Projeto:
+   - execute o comando dentro da diretório pai do projeto:
+```
+git clone https://github.com/QActions87/serveRestAPIProject.git .
+```
+
+
 #
 ## Como rodar os testes:
-
+ - Manual no Postman:
+    - 1º Import a collection "**ServeRest_collection.json**" que está no diretório 'serveRestAPIProject/ServeRest
+/ServeRest_collection.json'.
+      
 
 
 
