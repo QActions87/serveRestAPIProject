@@ -1,7 +1,7 @@
 {
   "info": {
-    "_postman_id": "ef5b1836-702a-4ef0-895c-e2bc2f97fb3b",
-    "name": "Bootcamp: API Rest do manual à integração contínua Copy 2",
+    "_postman_id": "6a074cde-fa30-46a4-b202-e17a07f53bc8",
+    "name": "Bootcamp: API Rest do manual à integração contínua Copy 3",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "36819626"
   },
@@ -277,13 +277,19 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/usuarios/{{userId}}",
+              "raw": "{{baseUrl}}/usuarios/{{userId}}?baseUrl=https://serverest.dev",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "usuarios",
                 "{{userId}}"
+              ],
+              "query": [
+                {
+                  "key": "baseUrl",
+                  "value": "https://serverest.dev"
+                }
               ]
             }
           },
@@ -515,7 +521,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": ""
+      "value": "https://serverest.dev"
     }
   ]
 }
