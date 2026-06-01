@@ -39,15 +39,23 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
 
 #
 ## Como rodar os testes:
- - Manual no Postman:
-    - 1º Import a collection "**ServeRest_collection.json**" que está no diretório 'serveRestAPIProject/ServeRest
+ - **1º Manual no Postman**:
+    - I - Import a collection "**ServeRest_collection.json**", que está no **diretório** 'serveRestAPIProject/ServeRest
+    - II - Execute os testes individualmente.
 /ServeRest_collection.json'.
       
+ - **2º Automatizado no Postman**:
+    - I - Import a collection "**ServeRest_collection.json**", que está no **diretório** 'serveRestAPIProject/ServeRest'
+    - II - execute o 'run' na collection.
+   
 
-
-
-
-
+ - **3º Automatizado no Postman com massa de dados em csv**:
+    - I - Import a **collection** "**postman_collection_UsarComCSV.json**", que está no **diretório** 'serveRestAPIProject'
+/ServeRest/'
+    - II - execute o 'run' na collection.
+    - III - Fazer o upload da massa de dados no arquivo csv "**serverest_dados.csv**", que está no **diretório** 'serveRestAPIProject/ServeRest
+/massa-de-dados/'
+    - III - Executar o teste automatizado.
 
 
 
