@@ -13,6 +13,7 @@ Criação de testes de API do manual ao CI/CD utilizando Postman, newman e newma
 #
 ## Documentações:
  - Doc da API: [**Swagger**](https://serverest.dev/?lang=pt-BR#)
+ - [Pipeline CI: ](https://github.com/QActions87/serveRestAPIProject/blob/main/.github/workflows/pipelineCI-CD.yml)
 #
 ## Como instalar o ambiente:
  - **1º Instale** o [**nodejs**](https://nodejs.org/pt-br)
