@@ -1,0 +1,530 @@
+{
+  "info": {
+    "_postman_id": "84acb557-1af1-4a07-b251-c27d18de5d61",
+    "name": "Bootcamp: API Rest do manual à integração contínua",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36819626"
+  },
+  "item": [
+    {
+      "name": "Massa de Tete",
+      "item": [
+        {
+          "name": "Massa de Dados de Teste",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// 1º TESTE: Status Code é 200:",
+                  "pm.test(\"Status code é 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// Capturar first_name email e senha:",
+                  "console.log(pm.response.json().results[0].name.first);",
+                  "pm.globals.set(\"userName\", pm.response.json().results[0].name.first);",
+                  "pm.globals.set(\"userEmail\", pm.response.json().results[0].email);",
+                  "pm.globals.set(\"userPassword\", \"TesteTeste\");",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://randomuser.me/api/",
+              "protocol": "https",
+              "host": [
+                "randomuser",
+                "me"
+              ],
+              "path": [
+                "api",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usuário",
+      "item": [
+        {
+          "name": "Novo Cadastro",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Testes",
+                  "// 1º TESTE: O código de status da resposta do teste é 201 (Criado):",
+                  "pm.test(\"Status code é 201\", () => {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "// 2º TESTE: Captura o _id da resposta e o armazene em uma variável de ambiente.",
+                  "pm.test(\"Store _id in environment variable\", function () {",
+                  "    pm.globals.set(\"userId\", pm.response.json()._id);",
+                  "});",
+                  "",
+                  "// Validação do contrato",
+                  "// Importa o validador",
+                  "const Ajv = require('ajv');",
+                  "// Configuração detalhada de erros",
+                  "const ajv = new Ajv({allErrors: true, verbose: true});",
+                  "",
+                  "",
+                  "// 3º TESTE: Validar se o retorno é um array de objetos conforme o modelo",
+                  "pm.test('Schema is valid', function() {",
+                  "    // Compara o modelo de schema com a resposta da API.",
+                  "    const isValid = ajv.validate(pm.globals.get('schema'), pm.response.json());",
+                  "    // Se não for válido, exibe \"Falha no Contrato\" e detalha o erro",
+                  "    pm.expect(isValid, \"Falha no Contrato: \" + JSON.stringify(ajv.errors)).to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "pm.globals.unset(\"schema\");",
+                  "pm.globals.unset(\"userName\");",
+                  "pm.globals.unset(\"userEmail\");",
+                  "pm.globals.unset(\"userPassword\");",
+                  "",
+                  "pm.globals.set(\"schema\", {",
+                  "  \"type\": \"object\",",
+                  "  \"properties\": {",
+                  "    \"message\": {",
+                  "      \"type\": \"string\"",
+                  "    }",
+                  "  },",
+                  "  \"required\": [",
+                  "    \"message\"",
+                  "  ]",
+                  "});",
+                  "// Definindo variáveis globais, a partir de dados de iteração no arquivo '.csv':",
+                  "pm.globals.set(\"userName\", pm.iterationData.get(\"userName\"));",
+                  "pm.globals.set(\"userEmail\", pm.iterationData.get(\"userEmail\"));",
+                  "pm.globals.set(\"userPassword\", pm.iterationData.get(\"userPassword\"));",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\": \"{{userName}}\",\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\",\n    \"administrador\": \"false\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://serverest.dev/usuarios",
+              "protocol": "https",
+              "host": [
+                "serverest",
+                "dev"
+              ],
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Usuário pelo ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Testes",
+                  "// 1º TESTE: Status Code é 200:",
+                  "pm.test(\"Status code é 200\", () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// 2º TESTE: Validar se o ID retornado é o esperado:",
+                  "pm.test(\"Validar ID retornado\", () => {",
+                  "    pm.expect(pm.response.json()._id).to.be.eql(pm.globals.get(\"userId\"))",
+                  "});",
+                  "",
+                  "// 3º TESTE: Validar se o email retornado é o esperado:",
+                  "pm.test(\"Validar email retornado\", () => {",
+                  "    pm.expect(pm.response.json().email).to.be.eql(pm.globals.get(\"userEmail\"))",
+                  "});",
+                  "",
+                  "// Importa o validador:",
+                  "const Ajv = require('ajv');",
+                  "// Configuração detalhada de erros:",
+                  "const ajv = new Ajv({allErrors: true, verbose: true});",
+                  "",
+                  "// 4º TESTE: Validar se o retorno é um array de objetos conforme o modelo:",
+                  "pm.test('Schema is valid', () => {",
+                  "    // Compara o modelo de schema com a resposta da API:",
+                  "    const isValid = ajv.validate(pm.globals.get(\"schema\"), pm.response.json());",
+                  "    // Se não for válido, exibe \"Falha no Contrato\" e detalha o erro:",
+                  "    pm.expect(isValid, \"Falha no Contrato: \" + JSON.stringify(ajv.errors)).to.be.true;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Limpa a variável antes de usá-la:",
+                  "pm.globals.unset(\"schema\");",
+                  "// Schema JSON que será comparado com o body do response:",
+                  "pm.globals.set(\"schema\", {",
+                  "  \"type\": \"object\",",
+                  "  \"properties\": {",
+                  "    \"nome\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"email\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"password\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"administrador\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"_id\": {",
+                  "      \"type\": \"string\"",
+                  "    }",
+                  "  },",
+                  "  \"required\": [",
+                  "    \"nome\",",
+                  "    \"email\",",
+                  "    \"password\",",
+                  "    \"administrador\",",
+                  "    \"_id\"",
+                  "  ]",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update do Usuário",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Testes",
+                  "// 1º TESTE: Status Code é 200:",
+                  "pm.test(\"Status code é 200\", () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// 2º TESTE: Verifique se o corpo da resposta contém a mensagem esperada:",
+                  "pm.test(\"Body is correct\", function () {",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Registro alterado com sucesso\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"{{userName}}\",\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\",\n    \"administrador\": \"true\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Usuário Atualizado",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Testes",
+                  "// 1º TESTE: Status Code é 200:",
+                  "pm.test(\"Status code is 200\", () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// 2º TESTE: Verificando o parâmetro atualizado administrador:",
+                  "pm.test(\"Body is correct\", function () {",
+                  "    pm.expect(pm.response.json().administrador).to.be.eql(\"true\")",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Limpa a variável antes de usá-la:",
+                  "pm.globals.unset(\"schema\");",
+                  "// Schema JSON que será comparado com o body do response:",
+                  "pm.globals.set(\"schema\", {",
+                  "  \"type\": \"object\",",
+                  "  \"properties\": {",
+                  "    \"nome\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"email\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"password\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"administrador\": {",
+                  "      \"type\": \"string\"",
+                  "    },",
+                  "    \"_id\": {",
+                  "      \"type\": \"string\"",
+                  "    }",
+                  "  },",
+                  "  \"required\": [",
+                  "    \"nome\",",
+                  "    \"email\",",
+                  "    \"password\",",
+                  "    \"administrador\",",
+                  "    \"_id\"",
+                  "  ]",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Usuário",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Testes",
+                  "// 1º TESTE: Status Code é 200:",
+                  "pm.test(\"Status code é 200\", () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// 2º TESTE: Verifique se o corpo da resposta contém a mensagem esperada:",
+                  "pm.test(\"Body is correct\", function () {",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Registro excluído com sucesso\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
