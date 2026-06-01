@@ -1,0 +1,69 @@
+# Nome do Workflow que aparecerá na aba "Actions" do seu GitHub
+name: Newman run
+
+# Definição dos gatilhos (eventos) que disparam o pipeline
+on:
+  push:
+    # O pipeline será executado automaticamente sempre que houver um 'git push' na branch main
+    branches: [ "main" ]
+  
+# Bloco onde definimos os trabalhos (jobs) que a esteira vai executar
+jobs:
+  # Nome do nosso job (pode ser qualquer nome, aqui escolhemos 'newman')
+  newman:
+    # Sistema operacional da máquina virtual que o GitHub vai ligar na nuvem para rodar os testes
+    runs-on: ubuntu-latest
+
+    # Lista de passos (steps) que serão executados em sequência dentro da máquina virtual
+    steps:
+    # Passo 1: Faz o "clone" do código do seu repositório para dentro da máquina virtual do GitHub
+    - uses: actions/checkout@v4
+    
+    # Passo 2: Cria uma pasta vazia chamada 'testArtifacts' para organizar os futuros relatórios
+    - name: Create directory for report
+      run: |
+        mkdir testArtifacts
+
+    # Passo 3: Usa a linha de comando (CLI) para instalar o Newman e o gerador de relatórios HTML
+    - name: Install Newman
+      run: |
+        npm install -g newman
+        npm install -g newman-reporter-htmlextra
+
+    # Passo 4: Executa de fato os testes do Postman usando o arquivo da collection e gera os relatórios (no terminal e em HTML)
+    - name: Run Test
+      run: |
+        newman run ServeRest_collection.json -r cli,htmlextra
+
+    # Passo 5: Salva o relatório gerado na nuvem do GitHub, permitindo que você faça o download dele depois que o teste acabar
+    - name: Report
+      uses: actions/upload-artifact@v4 # NOTA DO MENTOR: Atualizado para a v4 estável para evitar erros de compatibilidade com o node atual
+      with:
+        name: Report # Nome do arquivo ZIP que você vai baixar no GitHub
+        path: newman # Pasta onde o htmlextra joga o relatório por padrão para o upload capturar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    
