@@ -1,5 +1,5 @@
 # serveRest API Project
-![JavaScript010101](https://api.devicons.dev.br/icon?icons=Linux%2CPostman%2CJavaScript&size=48&theme=light&perline=30)
+![JavaScript010101](https://api.devicons.dev.br/icon?icons=Linux%2CPostman%2CJavaScript%2CGithub%2CGithubActions&size=48&theme=light&perline=30)
 
 Criação de testes de API do manual ao CI/CD utilizando Postman, newman e newman-htmlextra
 
