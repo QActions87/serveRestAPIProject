@@ -14,14 +14,20 @@ Criação de testes de API utilizando Postman, newman e newman-htmlextra
 #
 ## Como instalar o ambiente:
  - 1º Instale o [**nodejs**](https://nodejs.org/pt-br)
+ #
  - 2º Instale o **newman** globalmente:
+   
 ```
 npm install -g newman
 ```
+#
  - 3º Instale o **newman htmlextra** globalmente [dependência do **relatório** (opcional)]:
+   - [**Documentação** do newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra)
+
 ```
 npm install -g newman-reporter-htmlextra
 ```
+   - 
 #
 ## Como rodar os testes:
 
