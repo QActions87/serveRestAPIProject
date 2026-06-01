@@ -39,17 +39,17 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
 
 #
 ## Como rodar os testes:
- - **1º Manual no Postman**:
+### 1º Manual no Postman:
     - I - Import a collection "**ServeRest_collection.json**", que está no **diretório** 'serveRestAPIProject/ServeRest
     - II - Execute os testes individualmente.
 /ServeRest_collection.json'.
       
- - **2º Automatizado no Postman**:
+### 2º Automatizado no Postman:
     - I - Import a collection "**ServeRest_collection.json**", que está no **diretório** 'serveRestAPIProject/ServeRest'.
     - II - execute o 'run' na collection.
    
 
- - **3º Automatizado no Postman com massa de dados em csv**:
+### 3º Automatizado no Postman com massa de dados em csv:
     - I - Import a **collection** "**postman_collection_UsarComCSV.json**", que está no **diretório** 'serveRestAPIProject'
 /ServeRest/'.
     - II - execute o 'run' na collection.
@@ -57,7 +57,7 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
 /massa-de-dados/'.
     - III - Executar o teste automatizado.
 
-- **4º Conferir o html gerado no relatório da execução que realizei**:
+### 4º Conferir o html gerado no relatório da execução que realizei:
     - I - Dar 2 cliques no arquivo "**newman_htmlextra-2026-05-21-02-26-58-245-0.html**", que está no **diretório** 'serveRestAPIProject/ServeRest
 /newman/' e dar dois cliques no arquivo '**.html**'.
     - II - Para verificar o relatório de sua própria execução, de dentro do **diretório X** execute:
