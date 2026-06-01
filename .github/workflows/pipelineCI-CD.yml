@@ -17,7 +17,7 @@ jobs:
     # Lista de passos (steps) que serão executados em sequência dentro da máquina virtual
     steps:
     # Passo 1: Faz o "clone" do código do seu repositório para dentro da máquina virtual do GitHub
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6.0.2
     
     # Passo 2: Cria uma pasta vazia chamada 'testArtifacts' para organizar os futuros relatórios
     - name: Create directory for report
