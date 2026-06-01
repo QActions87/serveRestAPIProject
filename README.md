@@ -31,7 +31,7 @@ npm install -g newman-reporter-htmlextra
 ```
 
  - **4º Fork do Projeto**:
-   - execute o comando dentro da diretório pai do projeto:
+   - execute o comando dentro do diretório pai do projeto:
 ```
 git clone https://github.com/QActions87/serveRestAPIProject.git .
 ```
