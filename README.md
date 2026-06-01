@@ -1,5 +1,5 @@
 # serveRest API Project
-Criação de testes de API utilizando Postman, newman e newman-htmlextra
+Criação de testes de API do manual ao CI/CD utilizando Postman, newman e newman-htmlextra
 
 #
 ## Tecnologias usadas:
