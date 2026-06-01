@@ -57,6 +57,10 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
 /massa-de-dados/'
     - III - Executar o teste automatizado.
 
+- **4º Conferir o html gerado no relatório**:
+    - I - Dar 2 cliques no arquivo "**newman_htmlextra-2026-05-21-02-26-58-245-0.html**", que está no **diretório** 'serveRestAPIProject/ServeRest
+/newman/'.
+
 
 
 
