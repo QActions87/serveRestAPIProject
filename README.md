@@ -15,22 +15,22 @@ Criação de testes de API do manual ao CI/CD utilizando Postman, newman e newma
  - Doc da API: [**Swagger**](https://serverest.dev/?lang=pt-BR#)
 #
 ## Como instalar o ambiente:
- - 1º Instale o [**nodejs**](https://nodejs.org/pt-br)
+ - **1º Instale** o [**nodejs**](https://nodejs.org/pt-br)
  #
- - 2º Instale o **newman** globalmente:
+ - **2º Instale o newman** globalmente:
    
 ```
 npm install -g newman
 ```
 #
- - 3º Instale o **newman htmlextra** globalmente [dependência do **relatório** (opcional)]:
+ - **3º Instale o newman htmlextra** globalmente [dependência do **relatório** (opcional)]:
    - [**Documentação** do newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra)
 
 ```
 npm install -g newman-reporter-htmlextra
 ```
 
- - 3º Fork do Projeto:
+ - **4º Fork do Projeto**:
    - execute o comando dentro da diretório pai do projeto:
 ```
 git clone https://github.com/QActions87/serveRestAPIProject.git .
