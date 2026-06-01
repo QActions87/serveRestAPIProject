@@ -16,32 +16,38 @@ jobs:
 
     # Lista de passos (steps) que serão executados em sequência dentro da máquina virtual
     steps:
-    # Passo 1: Faz o "clone" do código do seu repositório para dentro da máquina virtual do GitHub
-    - uses: actions/checkout@v6.0.2
+    # Passo 1: Faz o clone do seu repositório
+    - uses: actions/checkout@v4
     
-    # Passo 2: Cria uma pasta vazia chamada 'testArtifacts' para organizar os futuros relatórios
+    # Passo 2: SELEÇÃO MANUAL DO NODE (A Solução!)
+    # Este passo força a máquina virtual a usar a versão estável mais recente do Node 24
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '24'
+
+    # Passo 3: Cria a pasta do relatório
     - name: Create directory for report
       run: |
         mkdir testArtifacts
 
-    # Passo 3: Usa a linha de comando (CLI) para instalar o Newman e o gerador de relatórios HTML
+    # Passo 4: Instala o Newman (agora usando o Node 24 que você setou acima!)
     - name: Install Newman
       run: |
         npm install -g newman
         npm install -g newman-reporter-htmlextra
 
-    # Passo 4: Executa de fato os testes do Postman usando o arquivo da collection e gera os relatórios (no terminal e em HTML)
+    # Passo 5: Executa os testes
     - name: Run Test
       run: |
         newman run ServeRest_collection.json -r cli,htmlextra
 
-    # Passo 5: Salva o relatório gerado na nuvem do GitHub, permitindo que você faça o download dele depois que o teste acabar
+    # Passo 6: Salva o relatório
     - name: Report
-      uses: tk3fftk/upload-DirectCloud-BOX-action@v1.0
+      uses: actions/upload-artifact@v4
       with:
-        name: Report # Nome do arquivo ZIP que você vai baixar no GitHub
-        path: newman # Pasta onde o htmlextra joga o relatório por padrão para o upload capturar
-
+        name: Report
+        path: newman
 
 
 
