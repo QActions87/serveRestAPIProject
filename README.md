@@ -18,7 +18,7 @@ Criação de testes de API utilizando Postman, newman e newman-htmlextra
 ```
 npm install -g newman
 ```
- - 3º Instale o **newman htmlextra** globalmente:
+ - 3º Instale o **newman htmlextra** globalmente [dependência do **relatório** (opcional)]:
 ```
 npm install -g newman-reporter-htmlextra
 ```
