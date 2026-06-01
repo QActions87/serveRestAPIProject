@@ -12,8 +12,37 @@ Criação de testes de API utilizando Postman, newman e newman-htmlextra
 ## Documentações:
  - Doc da API: [**Swegger**](https://serverest.dev/?lang=pt-BR#)
 #
-##
+## Como instalar o ambiente:
 s
 #
-##
+## Como rodar os testes:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
