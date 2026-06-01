@@ -10,10 +10,18 @@ Criação de testes de API utilizando Postman, newman e newman-htmlextra
 
 #
 ## Documentações:
- - Doc da API: [**Swegger**](https://serverest.dev/?lang=pt-BR#)
+ - Doc da API: [**Swagger**](https://serverest.dev/?lang=pt-BR#)
 #
 ## Como instalar o ambiente:
-s
+ - 1º Instale o [**nodejs**](https://nodejs.org/pt-br)
+ - 2º Instale o **newman** globalmente:
+```
+npm install -g newman
+```
+ - 3º Instale o **newman htmlextra** globalmente:
+```
+npm install -g newman-reporter-htmlextra
+```
 #
 ## Como rodar os testes:
 
