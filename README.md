@@ -60,7 +60,7 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
  - II - execute o 'run' na collection.
  - III - Fazer o upload da massa de dados no arquivo csv "**serverest_dados.csv**", que está no **diretório** 'serveRestAPIProject/ServeRest
 /massa-de-dados/'.
- - III - Executar o teste automatizado.
+ - IV - Executar o teste automatizado.
 #
 ### 4º Conferir o html gerado no relatório da execução que realizei:
  - I - Dar 2 cliques no arquivo "**newman_htmlextra-2026-05-21-02-26-58-245-0.html**", que está no **diretório** 'serveRestAPIProject/ServeRest
