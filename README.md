@@ -65,7 +65,7 @@ git clone https://github.com/QActions87/serveRestAPIProject.git .
 ### 4º Conferir o html gerado no relatório da execução que realizei:
  - I - Dar 2 cliques no arquivo "**newman_htmlextra-2026-05-21-02-26-58-245-0.html**", que está no **diretório** 'serveRestAPIProject/ServeRest
 /newman/' e dar dois cliques no arquivo '**.html**'.
- - II - Para verificar o relatório de sua própria execução, de dentro do **diretório X** execute:
+ - II - Para verificar o relatório de sua própria execução, de dentro do **diretório newman** execute:
   ```
       newman run ServeRest_collection.json -r cli,htmlextra
   ```
