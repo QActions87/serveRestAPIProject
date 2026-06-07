@@ -7,7 +7,7 @@ Criação de **testes de API do manual ao CI/CD** utilizando **Postman**, **newm
 ## Tecnologias usadas:
  - **Postman** versão Desktop e Web
  - **Node v20.13.1**
- - **nweman 6.2.2**
+ - **newman 6.2.2**
  - **newman-reporter-htmlextra v1.23.1**
 
 #
